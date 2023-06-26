@@ -1,0 +1,296 @@
+/* Reset */
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+:root {
+  --main-color: #4d62fd;
+  --sub-color: #9395a1;;
+}
+body {
+  background-color: #f1f1f1;
+  min-height: 100vh;
+  margin: 0;
+}
+a {
+  text-decoration: none;
+}
+/* End Reset */
+
+/* Forms */
+.form-holder {
+  padding: 30px;
+  background-color: #fff;
+  color: var(--sub-color);
+  width: 400px;
+  box-shadow: 5px 5px 10px 0px #c3c3c3;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.form-holder .title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.form-holder .title i {
+  font-size: 25px;
+  color: var(--main-color);
+  margin-bottom: 15px;
+}
+.form-holder .title h2 {
+  margin-bottom: 15px;
+  color: #000;
+}
+.form-holder .title p {
+  color: var(--sub-color);
+}
+.form-holder label {
+  font-size: 14px;
+  color: var(--sub-color);
+}
+.form-holder .input-holder {
+  padding-right: 5px;
+  border-bottom: 1px solid var(--sub-color);
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.form-holder .input-holder i {
+  color: var(--sub-color);
+  margin-bottom: 10px;
+}
+.form-holder .input-holder i.toggle-password-visibilty {
+  cursor: pointer;
+  font-style: normal;
+}
+.form-holder .input-holder i.toggle-password-visibilty::before {
+  content: "\f070";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+}
+.form-holder .input-holder i.toggle-password-visibilty.visible::before {
+  content: "\f06e";
+}
+.form-holder .input-holder input {
+  flex-grow: 1;
+  border: 0;
+  padding: 10px 0;
+  font-size: 18px;
+  margin-right: 10px;
+  padding-left: 10px;
+}
+.form-holder .input-holder input:focus {
+  outline: 0;
+}
+.form-holder .check {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.form-holder .check .input {
+  accent-color: var(--main-color);
+  background-color: var(--sub-color);
+  width: 15px;
+  height: 15px;
+}
+.form-holder .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.form-holder a {
+  color: var(--main-color);
+  text-decoration: none;
+}
+.form-holder button[type="submit"] {
+  background-color: var(--main-color);
+  padding: 15px 35px;
+  color: #fff;
+  border: 0;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+}
+.form-holder button[type="submit"] i {
+  margin-left: 10px;
+}
+/* End Forms */
+
+/* Chat System */
+.chat-holder {
+  box-shadow: 5px 5px 10px 0px #c3c3c3;
+  background-color: #fff;
+  position: absolute;
+  width: 100vw;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100vh;
+}
+@media (min-width: 768px) {
+  .chat-holder {
+    width: 600px;
+    margin-top: 50px;
+    height: calc(100% - 100px);
+  }
+}
+.chat-holder .title {
+  background-color: #4CAF50;
+  color: #fff;
+  display: flex;
+  gap: 10px;
+  padding: 20px;
+  align-items: center;
+  height: 65px;
+  text-transform: capitalize;
+}
+.chat-holder .title > i {
+  font-size: 25px;
+}
+.chat-holder .title button.log-out {
+  width: 50px;
+  height: 50px;
+  border: 0;
+  color: #fff;
+  background-color: #FF5722;
+  font-size: 20px;
+  border-radius: 50%;
+  margin-left: auto;
+  cursor: pointer;
+}
+.chat-holder .messages {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  height: calc(100% - 65px - 70px);
+  overflow-y: auto;
+}
+.chat-holder .messages .date {
+  text-align: center;
+  position: relative;
+  background-color: #795548;
+  padding: 10px;
+  color: #fff;
+  font-weight: 700;
+}
+.chat-holder .messages::-webkit-scrollbar {
+  width: 10px;
+}
+.chat-holder .messages::-webkit-scrollbar-track{
+  background-color: var(--sub-color);
+}
+.chat-holder .messages::-webkit-scrollbar-thumb {
+  background-color: var(--main-color);
+}
+.chat-holder .messages .message {
+  width: 70%;
+}
+.chat-holder .messages .message.message-from {
+  margin-left: auto;
+}
+.chat-holder .messages .message .name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding-left: 3px;
+  text-transform: capitalize;
+}
+.chat-holder .messages .message.message-from .name {
+  flex-direction: row-reverse;
+}
+.chat-holder .messages .message .name i {
+  font-size: 25px;
+}
+.chat-holder .messages .message .text,
+.chat-holder .messages .message .file {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.chat-holder .messages .message .text .content,
+.chat-holder .messages .message .file .content {
+  background-color: var(--main-color);
+  color: #fff;
+  padding: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.chat-holder .messages .message .text .content::after,
+.chat-holder .messages .message .file .content::after {
+  content: "";
+  position: absolute;
+  top: -30px;
+  width: 0;
+  height: 0;
+  border: 15px solid var(--sub-color);
+  border-color: transparent transparent var(--main-color) transparent;
+}
+.chat-holder .messages .message.message-to .text .content::after,
+.chat-holder .messages .message.message-to .file .content::after{
+  left: 0px;
+}
+.chat-holder .messages .message.message-from .text .content::after,
+.chat-holder .messages .message.message-from .file .content::after{
+  right: 0px;
+}
+.chat-holder .messages .message .file .content::before {
+  content: "\f15b";
+  font-family: "Font Awesome 6 Free";
+  color: #fff;
+  font-weight: bold;
+  margin-right: 10px;
+}
+.chat-holder .messages .message.message-to .time{
+  margin-left: auto;
+}
+.chat-holder form#chat_form {
+  position: fixed;
+  bottom: 0;
+  background-color: #f1f1f1;
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+}
+.chat-holder form#chat_form input[type="file"]{
+  display: none;
+}
+.chat-holder form#chat_form input[type="text"] {
+  border: 0;
+  padding: 10px 20px;
+  width: 100%;
+  font-size: 17px;
+}
+.chat-holder form#chat_form input[type="text"].error::placeholder {
+  color: red;
+}
+.chat-holder form#chat_form input[type="text"]:focus {
+  outline: 0;
+}
+.chat-holder form#chat_form button.submit,
+.chat-holder form#chat_form label {
+  border: 0;
+  border-radius: 50%;
+  min-width: 50px;
+  width: 50px;
+  height: 50px;
+  color: #fff;
+  background-color: var(--main-color);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.chat-holder form#chat_form label {
+  background-color: #F44336;
+}
+/* End Chat System */
